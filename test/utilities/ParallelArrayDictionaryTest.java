@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
-//Testing Github
+
 class ParallelArrayDictionaryTest
 {
 	/**
@@ -32,7 +32,7 @@ class ParallelArrayDictionaryTest
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
 		
-		assertEquals(_dict.size(), 4);
+		assertEquals("Size is not 4", _dict.size(), 4);
 		assertTrue(_dict.containsKey(1));
 		assertTrue(_dict.containsValue("tsunami"));
 	}
