@@ -11,6 +11,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 //Test commit on Git again 
 class ParallelArrayDictionaryTest
@@ -65,9 +67,9 @@ class ParallelArrayDictionaryTest
 		_dict.put(2, "world");
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
-		assertTrue(_dict.put(4, "first").equals("first"));
-		assertFalse(_dict.get(4).equals("last"));
-		assertTrue(_dict.size()==4);
+		assertEquals(_dict.put(4, "first"), "first");
+		assertEquals(_dict.get(4), "first");
+		assertEquals(_dict.size(), 4);
 	}
 
 	/**
@@ -83,11 +85,11 @@ class ParallelArrayDictionaryTest
 		_dict.put(2, "world");
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
-		assertTrue(_dict.remove(4).equals("last"));
-		assertTrue(_dict.size()==3);
+		assertEquals(_dict.remove(4), "last");
+		assertEquals(_dict.size(), 3);
 		
-		assertTrue(_dict.remove(2).equals("world"));
-		assertTrue(_dict.size()==2);
+		assertEquals(_dict.remove(2), "world");
+		assertEquals(_dict.size(), 2);
 		
 		assertFalse(_dict.containsKey(4)&&_dict.containsKey(2));
 		assertFalse(_dict.containsValue("last")&&_dict.containsValue("world"));
@@ -110,14 +112,14 @@ class ParallelArrayDictionaryTest
 		
 		ParallelArrayDictionary<Integer, String> _newDict = new ParallelArrayDictionary<Integer, String>();
 		_newDict.putAll(_dict);
-		assertTrue(_dict.entrySet().equals(_newDict.entrySet()));
+		assertEquals(_newDict.values(), Arrays.asList("hello", "world", "tsunami", "last"));
 		
 		
 		_newDict = new ParallelArrayDictionary<Integer, String>();
 		_newDict.put(1, "goodbye");
 		_newDict.putAll(_dict);
-		assertTrue(_newDict.get(1).equals(_dict.get(1)));
-		assertTrue(_newDict.size()==4);
+		assertEquals(_newDict.get(1), _dict.get(1));
+		assertEquals(_newDict.size(), 4);
 		
 	}
 
@@ -134,6 +136,6 @@ class ParallelArrayDictionaryTest
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
 		_dict.clear();
-		assertTrue(_dict.size()==0);
+		assertEquals(_dict.size(), 0);
 	}
 }
