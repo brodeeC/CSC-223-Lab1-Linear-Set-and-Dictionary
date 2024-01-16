@@ -34,13 +34,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 */
 	public ArraySet(Collection <? extends E> c) {
 		_list = new ArrayList<E>();
-
-		//Loops over the elements of the collection and adds them if they aren't already in the list.
-		for (E colElement: c) {
-			if (!(_list.contains(colElement))) {
-				_list.add(colElement);
-			}
-		}
+		_list.addAll(c);
 	}
 
 	/**
@@ -154,8 +148,8 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		_list.clear();
-		ArraySet<E> _tempList = new ArraySet<E>((Collection<? extends E>) c);
-		return _list.addAll(_tempList);
+		_list.addAll((Collection<? extends E>) c);
+		return true;
 	}
 
 	/**
