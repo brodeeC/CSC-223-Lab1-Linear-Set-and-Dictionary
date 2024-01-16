@@ -34,7 +34,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 */
 	public ArraySet(Collection <? extends E> c) {
 		_list = new ArrayList<E>();
-		_list.addAll(c);
+		this.addAll(c);
 	}
 
 	/**
@@ -148,8 +148,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean retainAll(Collection<?> c) {
 		_list.clear();
-		_list.addAll((Collection<? extends E>) c);
-		return true;
+		return this.addAll((Collection<? extends E>) c);
 	}
 
 	/**
