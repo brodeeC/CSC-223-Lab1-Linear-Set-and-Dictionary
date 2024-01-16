@@ -35,6 +35,8 @@ class ParallelArrayDictionaryTest
 		assertEquals("Size is not 4", _dict.size(), 4);
 		assertTrue("_dict doesn't contain the key 1", _dict.containsKey(1));
 		assertTrue("_dict doesn't contain tsunami", _dict.containsValue("tsunami"));
+		
+		assertFalse("Dictionary is emptied",_dict.isEmpty());
 	}
 
 	/**
