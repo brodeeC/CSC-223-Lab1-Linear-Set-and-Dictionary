@@ -63,6 +63,7 @@ class ArraySetTest
 
 		//Shouldn't add an additional "tsunami" so size should be 4
 		assertEquals("Size is not 4", _list.size(), 4);
+		assertEquals("Was not 'first'", _list.get(0), "first");
 	}
 
 	@Test

@@ -93,13 +93,11 @@ class ParallelArrayDictionaryTest
 		
 		assertEquals("The string world was not removed",_dict.remove(2), "world");
 		assertEquals("The size is not 2",_dict.size(), 2);
-		
 
+		//Testing to make sure _dict removed the keys and the values
 		assertFalse("The key 4 and key 2 are equal",_dict.containsKey(4)&&_dict.containsKey(2));
-		assertFalse("The value last and the value world are equal",_dict.containsValue("last")&&_dict.containsValue("world"));
-
-		
-
+		assertFalse("The value last and the value world are equal",_dict.containsValue("last")
+				&&_dict.containsValue("world"));
 	}
 
 	/**
