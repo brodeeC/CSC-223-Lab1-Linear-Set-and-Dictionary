@@ -86,14 +86,14 @@ class ParallelArrayDictionaryTest
 		_dict.put(2, "world");
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
-		assertEquals(_dict.remove(4), "last");
-		assertEquals(_dict.size(), 3);
+		assertEquals("The word last was not removed",_dict.remove(4), "last");
+		assertEquals("Size is not 3",_dict.size(), 3);
 		
-		assertEquals(_dict.remove(2), "world");
-		assertEquals(_dict.size(), 2);
+		assertEquals("The string world was not removed",_dict.remove(2), "world");
+		assertEquals("The size is not 2",_dict.size(), 2);
 		
-		assertFalse(_dict.containsKey(4)&&_dict.containsKey(2));
-		assertFalse(_dict.containsValue("last")&&_dict.containsValue("world"));
+		assertFalse("The key 4 and key 2 are equal",_dict.containsKey(4)&&_dict.containsKey(2));
+		assertFalse("The value last and the value world are equal",_dict.containsValue("last")&&_dict.containsValue("world"));
 	}
 
 	/**
@@ -113,14 +113,14 @@ class ParallelArrayDictionaryTest
 		
 		ParallelArrayDictionary<Integer, String> _newDict = new ParallelArrayDictionary<Integer, String>();
 		_newDict.putAll(_dict);
-		assertEquals(_newDict.values(), Arrays.asList("hello", "world", "tsunami", "last"));
+		assertEquals("All the string values were entered",_newDict.values(), Arrays.asList("hello", "world", "tsunami", "last"));
 		
 		
 		_newDict = new ParallelArrayDictionary<Integer, String>();
 		_newDict.put(1, "goodbye");
 		_newDict.putAll(_dict);
-		assertEquals(_newDict.get(1), _dict.get(1));
-		assertEquals(_newDict.size(), 4);
+		assertEquals("Values were not entered correctly.",_newDict.get(1), _dict.get(1));
+		assertEquals("Dictionary does not contains four values",_newDict.size(), 4);
 		
 	}
 
@@ -137,6 +137,6 @@ class ParallelArrayDictionaryTest
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
 		_dict.clear();
-		assertEquals(_dict.size(), 0);
+		assertEquals("Size is not 0",_dict.size(), 0);
 	}
 }
