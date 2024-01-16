@@ -33,8 +33,8 @@ class ParallelArrayDictionaryTest
 		_dict.put(4, "last");
 		
 		assertEquals("Size is not 4", _dict.size(), 4);
-		assertTrue(_dict.containsKey(1));
-		assertTrue(_dict.containsValue("tsunami"));
+		assertTrue("_dict doesn't contain the key 1", _dict.containsKey(1));
+		assertTrue("_dict doesn't contain tsunami", _dict.containsValue("tsunami"));
 	}
 
 	/**
@@ -49,10 +49,10 @@ class ParallelArrayDictionaryTest
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
 		
-		assertEquals(_dict.get(1), "hello");
-		assertEquals(_dict.get(2), "world");
-		assertEquals(_dict.get(3), "tsunami");
-		assertEquals(_dict.get(4), "last");
+		assertEquals("Doesn't have hello", _dict.get(1), "hello");
+		assertEquals("Doesn't have world", _dict.get(2), "world");
+		assertEquals("Doesn't have tsunami", _dict.get(3), "tsunami");
+		assertEquals("Doesn't have last", _dict.get(4), "last");
 	}
 
 	/**
@@ -68,9 +68,9 @@ class ParallelArrayDictionaryTest
 		_dict.put(2, "world");
 		_dict.put(3, "tsunami");
 		_dict.put(4, "last");
-		assertEquals(_dict.put(4, "first"), "first");
-		assertEquals(_dict.get(4), "first");
-		assertEquals(_dict.size(), 4);
+		assertEquals("Wrong value returned", _dict.put(4, "first"), "first");
+		assertEquals("Didn't find first at key 4", _dict.get(4), "first");
+		assertEquals("Size is not 4", _dict.size(), 4);
 	}
 
 	/**
@@ -92,8 +92,14 @@ class ParallelArrayDictionaryTest
 		assertEquals("The string world was not removed",_dict.remove(2), "world");
 		assertEquals("The size is not 2",_dict.size(), 2);
 		
+<<<<<<< HEAD
 		assertFalse("The key 4 and key 2 are equal",_dict.containsKey(4)&&_dict.containsKey(2));
 		assertFalse("The value last and the value world are equal",_dict.containsValue("last")&&_dict.containsValue("world"));
+=======
+		//Testing to make sure _dict removed the keys and the values
+		assertFalse(_dict.containsKey(4)&&_dict.containsKey(2));
+		assertFalse(_dict.containsValue("last")&&_dict.containsValue("world"));
+>>>>>>> d183e480da33b18020b354c256eb7884fefd534c
 	}
 
 	/**
