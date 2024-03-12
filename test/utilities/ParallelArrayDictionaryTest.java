@@ -10,6 +10,7 @@ package utilities;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.Arrays;
 
@@ -55,6 +56,7 @@ class ParallelArrayDictionaryTest
 		assertEquals("Doesn't have world", _dict.get(2), "world");
 		assertEquals("Doesn't have tsunami", _dict.get(3), "tsunami");
 		assertEquals("Doesn't have last", _dict.get(4), "last");
+		assertEquals("Absent Key", _dict.get(5), null);
 	}
 
 	/**

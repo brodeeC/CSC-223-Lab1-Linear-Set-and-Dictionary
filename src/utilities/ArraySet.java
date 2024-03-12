@@ -24,7 +24,8 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 */
 	public ArraySet()
 	{
-		_list = new ArrayList<E>();
+		this(new ArrayList<E>());
+		//_list = new ArrayList<E>();
 	}
 
 	/**
@@ -33,8 +34,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	 * @param c
 	 */
 	public ArraySet(Collection <? extends E> c) {
-		_list = new ArrayList<E>();
-		this.addAll(c);
+		_list = new ArrayList<E>(c);
 	}
 
 	/**
